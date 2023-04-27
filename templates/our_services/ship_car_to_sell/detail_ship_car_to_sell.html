@@ -1,0 +1,141 @@
+{% extends 'layout/index.html'%} {% block content %}
+<div class="container my-5">
+    <h1 class="text-center nice-blue">Ship Car Details</h1>
+
+    <div class="row my-4">
+        <div class="col-md-4">
+            <div class="container my-5">
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        {% if ship_car_to_sell.main_image %}
+
+                        <div class="carousel-item active ">
+                            <img class="acce-caro-image rounded" src={{ship_car_to_sell.main_image.url}} alt="Car Image 1">
+                        </div>
+
+                        {% endif %} {% if ship_car_to_sell.image_1 %}
+                        <div class="carousel-item ">
+                            <img class="acce-caro-image rounded" src={{ship_car_to_sell.image_1.url}}>
+                        </div>
+                        {% endif %} {% if ship_car_to_sell.image_2 %}
+                        <div class="carousel-item ">
+                            <img class="acce-caro-image rounded" src={{ship_car_to_sell.image_2.url}}>
+                        </div>
+                        {% endif %} {% if ship_car_to_sell.image_3 %}
+                        <div class="carousel-item ">
+                            <img class="acce-caro-image rounded" src={{ship_car_to_sell.image_3.url}}>
+                        </div>
+                        {% endif %} {% if ship_car_to_sell.image_4 %}
+                        <div class="carousel-item ">
+                            <img class="acce-caro-image rounded" src={{ship_car_to_sell.image_4.url}}>
+                        </div>
+                        {% endif %}
+
+
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <div class="row my-5">
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap">
+                            {% if ship_car_to_sell.main_image %}
+
+                            <a href={{ship_car_to_sell.main_image.url}} class="col-2 p-0 mr-1  link d-flex flex-column" download>
+                                <img src={{ship_car_to_sell.main_image.url}} alt="{{car.makes_and_model}}" class="img-thumbnail sm-imgs">
+                                <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm  mx-auto w-25  p-0 mr-1"><i class="bi bi-download"></i></button>
+                            </a>
+
+                            {% endif %} {% if ship_car_to_sell.image_1 %}
+
+                            <a href={{ship_car_to_sell.image_1.url}} class="col-2 p-0 mr-1  link d-flex flex-column" download>
+                                <img src={{ship_car_to_sell.image_1.url}} alt="{{car.makes_and_model}}" class="img-thumbnail sm-imgs">
+                                <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm  mx-auto w-25  p-0 mr-1"><i class="bi bi-download"></i></button>
+                            </a>
+
+                            {% endif %} {% if ship_car_to_sell.image_2 %}
+
+                            <a href={{ship_car_to_sell.image_2.url}} class="col-2 p-0 mr-1  link d-flex flex-column" download>
+                                <img src={{ship_car_to_sell.image_2.url}} alt="{{car.makes_and_model}}" class="img-thumbnail sm-imgs">
+                                <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm  mx-auto w-25  p-0 mr-1"><i class="bi bi-download"></i></button>
+                            </a>
+
+                            {% endif %} {% if ship_car_to_sell.image_3 %}
+
+                            <a href={{ship_car_to_sell.image_3.url}} class="col-2 p-0 mr-1  link d-flex flex-column" download>
+                                <img src={{ship_car_to_sell.image_3.url}} alt="{{car.makes_and_model}}" class="img-thumbnail sm-imgs">
+                                <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm  mx-auto w-25  p-0 mr-1"><i class="bi bi-download"></i></button>
+                            </a>
+
+                            {% endif %} {% if ship_car_to_sell.image_4 %}
+
+                            <a target="_blank" href={{ship_car_to_sell.image_4.url}} class="col-2 p-0 mr-1  link d-flex flex-column" download>
+                                <img src={{ship_car_to_sell.image_4.url}} alt="{{car.makes_and_model}}" class="img-thumbnail sm-imgs">
+                                <button data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-sm  mx-auto w-25  p-0 mr-1"><i class="bi bi-download"></i></button>
+                            </a>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-md-8 nice-blue">
+
+            <h2>{{ship_car_to_sell.year_manufactured}} {{ship_car_to_sell.makes_and_model}} - ({{ship_car_to_sell.title|capfirst}})</h2>
+            <p class="lead">&#8373; {{ship_car_to_sell.price}}</p>
+            <p>{{ship_car_to_sell.description}}</p>
+            <p>Message {{ship_car_to_sell.anything_u_want_to_tell_us}}</p>
+            <ul class="list-group mb-4 ">
+
+                <small class="list-group-item nice-blue">Sender: {{ship_car_to_sell.your_name}}</small>
+
+                <small class="list-group-item nice-blue">Country: {{ship_car_to_sell.country}}, Location:  {{ship_car_to_sell.location}}, Contact:  {{ship_car_to_sell.contact}}</small>
+
+                <small class="list-group-item nice-blue">(Condition: {{ship_car_to_sell.condition}}), (Fuel: {{ship_car_to_sell.fuel}}), (Steering: {{ship_car_to_sell.steering}})</small>
+                <small class="list-group-item nice-blue">Mileage: {{ship_car_to_sell.mileage}} Km</small>
+                <small class="list-group-item nice-blue">Transmission: {{ship_car_to_sell.transmission}}</small>
+                <small class="list-group-item nice-blue">Color: Exterior - {{ship_car_to_sell.color|capfirst}}, Interior - {{ship_car_to_sell.interior_color|capfirst}}</small>
+                <small class="list-group-item nice-blue">Registered: {{ship_car_to_sell.registered}}, Duty Paid - {{ship_car_to_sell.duty_paid}}</small>
+
+                <small class="list-group-item nice-blue">Accessories: {{ship_car_to_sell.accessories}}</small>
+                <small class="list-group-item nice-blue">Posted: {{ship_car_to_sell.created}}</small>
+                <small class="list-group-item nice-blue">Email: {{ship_car_to_sell.email}}</small>
+            </ul>
+
+
+            <div class="card-body d-flex justify-content-between">
+                <form method="POST">
+                    {% csrf_token %} {% if ship_car_to_sell.attended_to %}
+                    <button type="submit" class="card-link btn btn-sm text-white navbar-bgc">Unattend To</button> {% else %}
+                    <button type="submit" class="card-link btn btn-sm text-white navbar-bgc">Attend To</button> {% endif %}
+
+
+                </form>
+                <a href={% url 'delete-ship-car-for-sell' ship_car_to_sell.id ship_car_to_sell.slug %} class="card-link  btn btn-sm text-white btn-logout">Delete</a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</html>
+
+{% endblock %}

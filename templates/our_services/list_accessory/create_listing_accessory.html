@@ -1,0 +1,101 @@
+<div class="w-100 my-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-9 col-sm-12">
+            <div class="card">
+                <div class="card-header text-center ">
+                    <h4 class="">List Accessory</h4>
+                </div>
+                <small class="text-danger text-center">
+                    {{list_accessories_form.errors|capfirst}}
+                  </small>
+                <form method="POST" class="card-body" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="input-group mb-3  mt-3">
+                        {{list_accessories_form.name}}
+                    </div>
+                    <div class="input-group mb-3">
+                        {{list_accessories_form.price}}
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{list_accessories_form.contact_no}}
+                    </div>
+
+
+                    <div class="form-group mb-4">
+                        <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Region</small></label> {{list_accessories_form.region}}
+
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text text-secondary chk-box" id="basic-addon1 ">Image</span> {{list_accessories_form.main_image}}
+
+                    </div>
+
+
+
+                    <div class="input-group mb-4 d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Image 1</small></label> {{list_accessories_form.image_1}}
+
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Image 2</small></label> {{list_accessories_form.image_2}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-4 d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Image 3</small></label> {{list_accessories_form.image_3}}
+
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Image 4</small></label> {{list_accessories_form.image_4}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="input-group mb-3">
+                        {{list_accessories_form.email}}
+
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{list_accessories_form.description}}
+
+                    </div>
+
+
+                    <input type="hidden" name="type" value="list_accessory" />
+                    <button type="submit" class="btn btn-sm navbar-bgc text-white w-100 ">List Accessory</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

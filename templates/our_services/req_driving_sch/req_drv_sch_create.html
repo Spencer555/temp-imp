@@ -1,0 +1,57 @@
+<div class="container card my-5 ">
+    <div class="card-header text-center">
+        <h4 class="">Request Driving School</h4>
+    </div>
+    <small class="text-danger text-center">
+        {{req_drv_sch_form.errors|capfirst}}
+      </small>
+
+    <form method="POST" class="card-body">
+        {% csrf_token %}
+        <div class="input-group mb-3 mt-3">
+            {{req_drv_sch_form.name}}
+        </div>
+
+        <div class="input-group mb-3 mt-3">
+            {{req_drv_sch_form.location}}
+        </div>
+
+        <div class="input-group mb-3">
+            {{req_drv_sch_form.email}}
+        </div>
+
+        <div class="input-group mb-3">
+            {{req_drv_sch_form.contact_no}}
+        </div>
+
+
+        <div class="form-group mb-4">
+            <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Region</small></label> {{req_drv_sch_form.region}}
+
+        </div>
+
+        <div class="input-group mb-3">
+            {{req_drv_sch_form.budget}}
+        </div>
+
+
+        <div class="input-group mb-3">
+            {{req_drv_sch_form.anything_else}}
+        </div>
+
+
+
+
+
+
+        <div class="input-group mb-3">
+            {{req_drv_sch_form.enquiry}}
+        </div>
+
+        <input type="hidden" name="type" value="request_drv_sch">
+
+
+        <button type="submit" class="btn btn-sm navbar-bgc text-white w-100 ">Submit</button>
+
+    </form>
+</div>

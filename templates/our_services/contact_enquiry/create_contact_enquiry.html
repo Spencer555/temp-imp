@@ -1,0 +1,38 @@
+<div class="container card my-5 ">
+    <div class="card-header text-center">
+        <h4 class="">Contact Enquiry</h4>
+    </div>
+    <small class="text-danger text-center">
+        {{contact_form.errors|capfirst}}
+      </small>
+
+    <form method="POST" class="card-body">
+        {% csrf_token %}
+        <div class="input-group mb-3 mt-3">
+            {{contact_form.name}}
+        </div>
+
+        <div class="input-group mb-3">
+            {{contact_form.email}}
+        </div>
+
+        <div class="input-group mb-3">
+            {{contact_form.contact}}
+        </div>
+
+
+
+
+
+
+        <div class="input-group mb-3">
+            {{contact_form.enquiry}}
+        </div>
+
+        <input type="hidden" name="type" value="contact_enquiry">
+
+
+        <button type="submit" class="btn btn-sm navbar-bgc text-white w-100 ">Submit</button>
+
+    </form>
+</div>

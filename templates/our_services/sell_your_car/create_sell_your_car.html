@@ -1,0 +1,230 @@
+<div class="w-100 my-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-9 col-sm-12">
+            <div class="card">
+                <div class="card-header text-center ">
+                    <h4 class="">Sell Your Car</h4>
+                </div>
+                <small class="text-danger text-center">
+                    {{sell_your_car_form.errors|capfirst}}
+                  </small>
+                <form method="POST" class="card-body" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="input-group mb-3  mt-3">
+                        {{sell_your_car_form.title}}
+                    </div>
+                    <div class="input-group mb-3">
+                        {{sell_your_car_form.your_name}}
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{sell_your_car_form.contact}}
+                    </div>
+
+
+                    <div class="form-group mb-4">
+                        <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Model & Makes</small></label> {{sell_your_car_form.makes_and_model}}
+
+                    </div>
+
+
+                    <div class="input-group mb-4 d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Condition</small></label> {{sell_your_car_form.condition}}
+
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Transmission</small></label> {{sell_your_car_form.transmission}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-4 d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Image 1</small></label> {{sell_your_car_form.image_1}}
+
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Image 2</small></label> {{sell_your_car_form.image_2}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-4 d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Image 3</small></label> {{sell_your_car_form.image_3}}
+
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Image 4</small></label> {{sell_your_car_form.image_4}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="input-group mb-4 d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Fuel</small></label> {{sell_your_car_form.fuel}}
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Steering</small></label> {{sell_your_car_form.steering}}
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="input-group d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group ">
+
+
+                                    {{sell_your_car_form.price}}
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group ">
+                                    <div class="input-group mb-4">
+
+
+                                        {{sell_your_car_form.mileage}}
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="input-group d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group ">
+
+                                    {{sell_your_car_form.color}}
+
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group ">
+                                    <div class="input-group mb-2">
+
+                                        {{sell_your_car_form.interior_color}}
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="input-group d-flex flex-column mb-2">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model"><small class='nice-blue  sm-font'>Region</small></label> {{sell_your_car_form.region}}
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group ">
+                                    <label for="model"><small class='nice-blue  sm-font'>Year</small></label> {{sell_your_car_form.year_manufactured}}
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="input-group mb-3">
+                        {{sell_your_car_form.accessories}}
+
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text text-secondary chk-box" id="basic-addon1 ">Image</span> {{sell_your_car_form.main_image}}
+
+                    </div>
+
+
+
+                    <div class="input-group mb-3">
+                        {{sell_your_car_form.description}}
+
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{sell_your_car_form.anything_u_want_to_tell_us}}
+
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{sell_your_car_form.location}}
+
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{sell_your_car_form.email}}
+
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <div class="form-check form-check-inline">
+                            {{sell_your_car_form.registered}}
+
+                            <label class="form-check-label nice-blue" for="inlineCheckbox1">Registered</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {{sell_your_car_form.duty_paid}}
+
+                            <label class="form-check-label  nice-blue" for="inlineCheckbox2">Duty Paid</label>
+                        </div>
+                    </div>
+                    <input type="hidden" name="type" value="sell_your_car" />
+                    <button type="submit" class="btn btn-sm navbar-bgc text-white w-100 ">Sell Your Car</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

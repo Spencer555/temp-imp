@@ -1,0 +1,54 @@
+{% extends 'layout/index.html'%} {% block content %}
+<h4 class="nice-blue text-center mt-5"><strong>Contact Enquiry</strong></h4>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title text-center nice-blue">{{ contact_us.name|upper }}</h6>
+
+                    <ul class="list-group list-group-flush">
+                        <small class="list-group-item nice-blue"><strong>Sender:</strong> {{ contact_us.name|capfirst }}</small>
+
+                        <small class="list-group-item nice-blue"><strong>Sent:</strong> {{ contact_us.created }}</small>
+
+
+                        <small class="list-group-item nice-blue"><strong>Contact:</strong> {{ contact_us.contact }}</small>
+
+                        <small class="list-group-item nice-blue"><strong>Email:</strong> {{ contact_us.email }}</small>
+
+
+                    </ul>
+                    <div class="card-body px-1">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item ">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button nice-blue" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  Message
+                                </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        {{contact_us.enquiry}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex justify-content-between">
+                        <form method="POST">
+                            {% csrf_token %} {% if contact_us.attended_to %}
+                            <button type="submit" class="card-link btn btn-sm text-white navbar-bgc">Unattend To</button> {% else %}
+                            <button type="submit" class="card-link btn btn-sm text-white navbar-bgc">Attend To</button> {% endif %}
+
+
+                        </form>
+                        <a href={% url 'delete-car-rent' contact_us.slug contact_us.id %} class="card-link  btn btn-sm text-white btn-logout">Delete</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

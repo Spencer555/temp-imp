@@ -1,0 +1,54 @@
+ {% load static %}
+<nav class="navbar navbar-bgc p-2 ">
+
+
+
+    <div class="w-100 justify-content-center flex-wrap" id="navbarNav">
+        <ul class="navbar-nav d-none d-sm-flex flex-row justify-content-between nav-lg ">
+            <li class="nav-item">
+                <a class="navbar-brand " href="/">
+                    <img src="{% static 'assets/logo.svg' %}" alt="Logo" width="55" height="55">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white fw-bold" href="{% url 'list-car' %}">CARS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white fw-bold" href="{% url 'list-accessory'  %}">ACCESSORIES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white fw-bold" href="{% url 'services-home' %}">SERVICES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white fw-bold" href="{% url 'list-car-rental' %}">RENTALS</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav d-flex  d-sm-none flex-row justify-content-between nav-sm">
+            <li class="nav-item">
+                <a class="navbar-brand " href="/">
+                    <img src="{% static 'assets/logo.svg' %}" alt="Logo" width="55" height="55">
+                </a>
+            </li>
+
+            <li class="nav-item mr-3" style="line-height:3em">
+                <a class="nav-link text-white fw-bold" href="{% url 'list-car' %}" data-toggle="tooltip" title="CARS" data-placement="left"> <img class="nice-blue" src={% static 'assets/cars.svg' %} alt="Cars" width="30" height="30"> </a>
+            </li>
+            <li class="nav-item mr-3" style="line-height:3em">
+                <a class="nav-link text-white fw-bold" href="{% url 'list-accessory'  %}" data-toggle="tooltip" title="ACCESSORIES" data-placement="left">
+                    <img class="nice-blue" src={% static 'assets/accessories.svg' %} alt="Accessories" width="30" height="30">
+                </a>
+            </li>
+
+            <li class="nav-item mr-3" style="line-height:3em">
+                <a class="nav-link text-white fw-bold" href="{% url 'services-home' %}" data-toggle="tooltip" title="SERVICES" data-placement="left"> <img class="nice-blue" src={% static 'assets/service.svg' %} alt="Services" width="30" height="30"> </a>
+            </li>
+            <li class="nav-item mr-3" style="line-height:3em">
+                <a class="nav-link text-white fw-bold" href="{% url 'list-car-rental' %}" data-toggle="tooltip" title="RENTALS" data-placement="left"> <img class="nice-blue" src={% static 'assets/rental.svg' %} alt="Rentals" width="30" height="30"> </a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+
+{% if user.is_staff or user.is_superuser%} {% include 'layout/staff_navbar.html' %} {% endif %}

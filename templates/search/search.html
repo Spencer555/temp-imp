@@ -1,0 +1,164 @@
+ {% extends 'layout/index.html' %} {% block content %}
+<h4 class="my-3 text-center nice-blue">({{count}}) Result(s) For "{{query}}" Found </h4>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            {% for car in cars %}
+
+            <div class="card my-4">
+                <a class="link d-flex" href="{% url 'detail-car'   car.slug car.id %}">
+                    <img class="w-25 mr-3 img-fluid rounded img-sch" src={{car.main_image.url}} alt={{car.makes_and_model}}>
+                    <div class="media-body w-75 px-2">
+                        <i class="small">Car</i> <br>
+
+                        <h6 class="mt-0 mb-1">{{car.makes_and_model|capfirst|truncatechars:20}}</h6>
+                        <small class="small">Location: {{car.region|capfirst}} {{car.location|capfirst|truncatechars:20}}</small> <br>
+
+                        <small class="small">Price: &#8373;{{car.price}}  </small> <br>
+                        <small class="small">Posted: {{car.created}}</small> <br>
+                    </div>
+                </a>
+            </div>
+            {% endfor %} {% for accessory in accessories %}
+
+            <div class="card my-4">
+                <a class="link d-flex" href="{% url 'detail-accessory'  accessory.id accessory.slug %}">
+
+                    <img class="w-25 mr-3 img-fluid rounded img-sch" src={{accessory.main_image.url}} alt={{accessory.name}}>
+                    <div class="media-body w-75 px-2">
+                        <i class="small">Accessory</i> <br>
+
+                        <h6 class="mt-0 mb-1">{{accessory.name|capfirst|truncatechars:20}}</h6>
+                        <small class="small">Price: &#8373;{{accessory.price}}  </small> <br>
+                        <small class="small">Posted: {{accessory.created}}</small> <br>
+                    </div>
+
+
+
+
+                </a>
+
+            </div>
+            {% endfor %} {% for rental in car_rental %}
+
+            <div class="card my-4">
+                <a class="link d-flex" href="{% url 'detail-car-rental'   rental.slug rental.id %}">
+
+                    <img class="w-25 mr-3 img-fluid rounded img-sch" src={{rental.main_image.url}} alt={{rental.car}}>
+                    <div class="media-body w-75 px-2">
+                        <i class="small">Rental</i> <br>
+
+                        <h6 class="mt-0 mb-1">{{rental.car|capfirst|truncatechars:20}}</h6>
+                        <small class="small">Rate: &#8373;{{rental.rate}} {{rental.per|capfirst}}</small> <br>
+                        <small class="small">Location: {{rental.region|capfirst}} {{rental.location|capfirst|truncatechars:20}}</small> <br>
+                        <small class="small">Posted: {{rental.created}}</small> <br>
+                    </div>
+
+
+
+
+                </a>
+
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+
+    </div>
+</div>
+<div class="paginations">
+    {% if is_paginated %} {% if page_obj.has_other_pages %}
+    <nav>
+        <ul class="pagination justify-content-center flex-wrap">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1">First</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}"> Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">First</span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+            {% endif %} {% for i in page_obj.paginator.page_range %} {% if i == page_obj.number %}
+            <li class="page-item active">
+                <span class="page-link">{{ i }} 
+        </li>
+
+
+
+
+
+
+
+
+
+
+        {%elif i > page_obj.number|add:"-3" and i < page_obj.number|add:"3"%}
+         <li class="page-item">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+
+           
+            {%elif i == page_obj.number|add:"-3" or i == page_obj.number|add:"3"%}
+            <li class="page-item disabled">
+                <span class="page-link">...</span>
+
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {% endif %} {% endfor %} {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"> Last</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Next </span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link"> Last</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %} {% endif %}
+</div>
+
+
+{% endblock %}

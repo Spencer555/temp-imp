@@ -1,0 +1,45 @@
+{% extends 'layout/index.html'%} {% block content %}
+<h4 class="nice-blue text-center mt-5"><strong>Car Rental Request</strong></h4>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title text-center nice-blue">{{ rent_car.car.car|upper }}</h6>
+
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <small class="list-group-item nice-blue"><strong>Sender:</strong> {{ rent_car.name|capfirst }}</small>
+
+                    <small class="list-group-item nice-blue"><strong>Sent:</strong> {{ rent_car.created }}</small>
+
+                    <small class="list-group-item nice-blue"><strong>Location:</strong> {{ rent_car.location }}</small>
+
+                    <small class="list-group-item nice-blue"><strong>Region:</strong> {{ rent_car.region }}</small>
+
+                    <small class="list-group-item nice-blue"><strong>Contact:</strong> {{ rent_car.contact }}</small>
+
+                    <small class="list-group-item nice-blue"><strong>Email:</strong> {{ rent_car.email }}</small>
+
+
+                </ul>
+
+                <div class="card-body d-flex justify-content-between">
+                    <form method="POST">
+                        {% csrf_token %} {% if rent_car.attended_to %}
+                        <button type="submit" class="card-link btn btn-sm text-white navbar-bgc">Unattend To</button> {% else %}
+                        <button type="submit" class="card-link btn btn-sm text-white navbar-bgc">Attend To</button> {% endif %}
+
+
+                    </form>
+                    <a href={% url 'delete-car-rent' rent_car.slug rent_car.id %} class="card-link  btn btn-sm text-white btn-logout">Delete</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

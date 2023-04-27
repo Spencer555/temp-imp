@@ -1,0 +1,17 @@
+{% extends 'layout/index.html' %} {%block content%}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 col-sm-12">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Logged Out</h4>
+                </div>
+                <div class="card-body">
+                    <p>Do You Want To Log In Again?</p>
+                    <a href="{% url 'login' %}" class="btn btn-sm navbar-bgc btn-block text-white">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock %}

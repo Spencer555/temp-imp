@@ -1,0 +1,31 @@
+<ul class="nav nav-pills flex-nowrap scroll1 my-2">
+    <a class="col-2 p-0 mx-1  link d-flex flex-column">
+        <img src={{accessory.main_image.url}} alt="Accessory Image " class="img-thumbnail sm-imgs">
+
+
+    </a>
+    {% for image in accessory_image%}
+    <a class="col-2 p-0 mx-1  link d-flex flex-column">
+        <img src={{image.image.url}} alt="Accessory Image " class="img-thumbnail sm-imgs"> {% if user.is_staff or user.is_superuser %}
+        <button data-bs-toggle="collapse" href="#collapseExample{{image.id}}" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-sm  mx-auto w-25  p-0 mr-1"><i class="bi bi-trash-fill del"></i></button>
+
+
+        <div class="collapse  my-4" id="collapseExample{{image.id}}">
+
+
+            <form method="POST" class="d-flex justify-content-around">
+
+                {% csrf_token %}
+                <input type="hidden" name="id" value={{image.id}}>
+                <input type="hidden" name="slug" value={{image.slug}}>
+                <input type="hidden" name="type" value="delete">
+                <button type="submit" class="btn-logout"><i class="bi bi-trash-fill text-white "></i></button>
+
+            </form>
+        </div>
+
+
+
+        {% endif%} {% endfor %}
+    </a>
+</ul>

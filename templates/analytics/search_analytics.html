@@ -1,0 +1,347 @@
+{% extends 'layout/index.html' %} {% block content %}
+
+<h2 class="container text-center nice-blue my-3">Analytics</h2>
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cars</h5>
+                    <p class="card-text">{{cars}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Accessories</h5>
+                    <p class="card-text">{{accessories}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Rentals</h5>
+                    <p class="card-text">{{rentals}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Accessory Enquiries Attended</h5>
+                    <p class="card-text">{{accessory_enquriy_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Accessory Enquiries Not Attended</h5>
+                    <p class="card-text">{{accessory_enquriy_not_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cars Enquiries Attended</h5>
+                    <p class="card-text">{{car_enquriy_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cars Enquiries Not Attended</h5>
+                    <p class="card-text">{{car_enquriy_not_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Rent Enquiries Attended</h5>
+                    <p class="card-text">{{rent_car_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Enquries Attended</h5>
+                    <p class="card-text">{{contact_enquriy_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Enquries Not Attended</h5>
+                    <p class="card-text">{{contact_enquriy_not_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ship Enquries Attended</h5>
+                    <p class="card-text">{{ship_enquriy_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ship Enquries Not Attended</h5>
+                    <p class="card-text">{{ship_enquriy_not_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Let's Sell Enquries Not Attended</h5>
+                    <p class="card-text">{{letus_enquriy_not_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Let's Sell Enquries Attended</h5>
+                    <p class="card-text">{{letus_enquriy_attended}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Mobiles</h5>
+                    <p class="card-text">{{total_mobile}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pcs</h5>
+                    <p class="card-text">{{total_pcs}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tablets</h5>
+                    <p class="card-text">{{total_tabs}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Bots</h5>
+                    <p class="card-text">{{total_bots}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 mb-3 nice-blue">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Visits</h5>
+                    <p class="card-text">{{total_visits}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="container text-center my-4">
+    <form action={% url 'search-analytics' %} method='GET' class="d-flex justify-content-center search input-group  w-100 mx-1">
+
+        <input class="form-control form-control-sm " type="search" name="q" placeholder="Analytics" aria-label="Search Cars" style="border-radius:0px" value={{query}}>
+        <button style="border-radius:0px" class="btn   navbar-bgc2 text-white search" type="submit"><i class="bi bi-search" ></i></button>
+        <br>
+
+    </form>
+</div>
+
+<h4 class="my-3 text-center nice-blue">({{count}}) Result(s) For "{{query}}" Found </h4>
+
+
+
+<div class="table-responsive">
+    <table class="table table-dark table-striped table-bordered table-hover nice-blue">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Username</th>
+                <th>IP&nbsp;Address</th>
+                <th>Times</th>
+                <th>Last&nbsp;Visit</th>
+                <th>Device</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Browser</th>
+                <th>Browser&nbsp;Ver</th>
+                <th>Browser&nbsp;Ver&nbsp;Str</th>
+                <th>OS</th>
+                <th>OS&nbsp;Ver</th>
+                <th>OS&nbsp;Ver&nbsp;Str</th>
+                <th>Mobile</th>
+                <th>Tablet</th>
+                <th>Touch</th>
+                <th>Pc</th>
+                <th>Bot</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in ipData %}
+            <tr>
+                <td>{{data.date_visited}}</td>
+                <td> {{data.user}} </td>
+                <td> {{data.ipaddress}} </td>
+                <td> {{data.times_views}} </td>
+                <td> {{data.time_visited}} </td>
+
+                <td>{{data.device_family}}</td>
+                <td> {{data.device_brand}} </td>
+                <td> {{data.device_model}} </td>
+                <td> {{data.browser_family}} </td>
+                <td> {{data.browser_version}} </td>
+                <td> {{data.browser_version_string}} </td>
+                <td> {{data.os_family}} </td>
+                <td> {{data.os_version}} </td>
+                <td> {{data.os_version_string}} </td>
+                <td> {{data.is_mobile}} </td>
+                <td> {{data.is_tablet}} </td>
+                <td> {{data.is_touch_capable}} </td>
+                <td> {{data.is_pc}} </td>
+                <td> {{data.is_bot}} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="paginations">
+    {% if is_paginated %} {% if page_obj.has_other_pages %}
+    <nav>
+        <ul class="pagination justify-content-center flex-wrap">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page=1">First</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page={{ page_obj.previous_page_number }}"> Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">First</span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+            {% endif %} {% for i in page_obj.paginator.page_range %} {% if i == page_obj.number %}
+            <li class="page-item active">
+                <span class="page-link">{{ i }} 
+        </li>
+
+
+
+
+
+
+
+
+
+
+        {%elif i > page_obj.number|add:"-3" and i < page_obj.number|add:"3"%}
+         <li class="page-item">
+            <a class="page-link" href="?q={{ query }}&page={{ i }}">{{ i }}</a>
+            </li>
+
+           
+            {%elif i == page_obj.number|add:"-3" or i == page_obj.number|add:"3"%}
+            <li class="page-item disabled">
+                <span class="page-link">...</span>
+
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {% endif %} {% endfor %} {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page={{ page_obj.next_page_number }}">Next </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}"> Last</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Next </span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link"> Last</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %} {% endif %}
+</div>
+{% endblock %}

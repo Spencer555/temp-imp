@@ -1,0 +1,57 @@
+<div class="w-100 my-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-9 col-sm-12">
+            <div class="card">
+                <div class="card-header text-center ">
+                    <h4 class="">List Your Driving School</h4>
+                </div>
+                <small class="text-danger text-center">
+                    {{list_drv_sch_form.errors|capfirst}}
+                  </small>
+                <form method="POST" class="card-body" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="input-group mb-3  mt-3">
+                        {{list_drv_sch_form.name}}
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{list_drv_sch_form.location}}
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{list_drv_sch_form.driving_sch_name}}
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        {{list_drv_sch_form.email}}
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        {{list_drv_sch_form.contact_no}}
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{list_drv_sch_form.services_offered}}
+                    </div>
+
+
+
+
+                    <div class="form-group mb-4">
+                        <label for="model" class="mb-1"><small class='nice-blue  sm-font'>Region</small></label> {{list_drv_sch_form.region}}
+
+                    </div>
+
+
+
+                    <input type="hidden" name="type" value="list_drv_sch" />
+                    <button type="submit" class="btn btn-sm navbar-bgc text-white w-100 ">List Driving Sch</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<ul class="nav nav-pills flex-nowrap scroll">
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link  "> <a href="{% url 'create-accessory'  %}" class="link text-white"> Create&nbsp;Accessory</a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-accessory-not-attended-to' %}" class="link text-white">  Accessory&nbsp;Enquires&nbsp;(UnApproved) </a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-accessory-attended-to' %}" class="link text-white"> Accessory&nbsp;Enquires&nbsp;(Approved) </a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'create-car' %}" class="link text-white"> Add&nbsp;Car </a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-car-enquiry-not-attended-to' %}" class="link text-white"> Cars&nbsp;Enquires&nbsp;(UnApproved)</a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-car-enquiry-attended-to' %}" class="link text-white"> Cars&nbsp;Enquires&nbsp;(Approved)</a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'create-car-rental' %}" class="link text-white"> Add&nbsp;Car&nbsp;Rental</a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-car-rent-enquiry-not-attended-to' %}" class="link text-white"> Car&nbsp;Rent&nbsp;Requests&nbsp;(UnApproved)</a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-car-rent-enquiry-attended-to' %}" class="link text-white"> Car&nbsp;Rent&nbsp;Requests&nbsp;(Approved)</a></button>
+    </li>
+
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-contact-enquiry-not-attended-to' %}" class="link text-white"> Contact&nbsp;Enquires&nbsp;(UnApproved)</a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-contact-enquiry-attended-to' %}" class="link text-white"> Contact&nbsp;Enquires&nbsp;(Approved) </a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-ship-car-not-attended-to' %}" class="link text-white"> Ship&nbsp;Car&nbsp;Requests&nbsp;(UnApproved)</a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-ship-car-attended-to' %}" class="link text-white"> Ship&nbsp;Car&nbsp;Requests&nbsp;(Approved)</a></button>
+    </li>
+    <li class="nav-item tab-nav" role="presentation">
+        <button class="nav-link "> <a href="{% url 'sell-your-car-not-attended-to' %}" class="link text-white"> Sell&nbsp;Car&nbsp;Requests&nbsp;(UnApproved)</a></button>
+    </li>
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'sell-your-car-attended-to' %}" class="link text-white"> Sell&nbsp;Car&nbsp;Requests&nbsp;(Approved)</a></button>
+    </li>
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-approved-drv-sch' %}" class="link text-white"> List&nbsp;Driving&nbsp;SCH&nbsp;(Approved)</a></button>
+    </li>
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-unapproved-drv-sch' %}" class="link text-white"> List&nbsp;Driving&nbsp;SCH&nbsp;(UnApproved)</a></button>
+    </li>
+
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'approved-req-drv-sch' %}" class="link text-white"> Req&nbsp;Driving&nbsp;SCH&nbsp;(Approved)</a></button>
+    </li>
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'unapproved-req-drv-sch' %}" class="link text-white"> Req&nbsp;Driving&nbsp;SCH&nbsp;(UnApproved)</a></button>
+    </li>
+
+
+
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-approved-accessories' %}" class="link text-white"> List&nbsp;Accessories&nbsp;(Approved)</a></button>
+    </li>
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-unapproved-accessories' %}" class="link text-white"> List&nbsp;Accessories&nbsp;(UnApproved)</a></button>
+    </li>
+
+
+
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-approved-car-rental' %}" class="link text-white"> Listing&nbsp;Car&nbsp;Rental&nbsp;(Approved)</a></button>
+    </li>
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'list-unapproved-car-rental' %}" class="link text-white"> Listing&nbsp;Car&nbsp;Rental&nbsp;(UnApproved)</a></button>
+    </li>
+
+    {% if user.is_superuser %}
+    <li class="nav-item tab-nav1" role="presentation">
+        <button class="nav-link "> <a href="{% url 'analytics' %}" class="link text-white"> Analytics</a></button>
+    </li>
+    {% endif %}
+</ul>

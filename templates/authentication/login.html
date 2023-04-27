@@ -1,0 +1,30 @@
+{% extends 'layout/index.html'%} {% block content %} {% load static %}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 col-sm-12">
+            <div class="card">
+                <div class="card-header text-center ">
+                    <h4 class="">Login To Imperial Auto Dealership</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" name='password' placeholder="Enter password">
+                        </div>
+
+                        <button type="submit" class=" w-100 btn navbar-bgc text-white btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

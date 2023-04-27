@@ -1,0 +1,124 @@
+{% extends 'layout/index.html'%} {% load static %} {% block content %}
+<div class="mb-5 jumbotron jumbotron-fluid d-flex services">
+    <div class="overlay"></div>
+
+    <div class="container my-auto">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h1 class="display-4 main-jumb text-white text-bold">Our Services</h1>
+                <p class="lead text-white">The Amazing Services We Offer</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h3 class="text-center nice-blue">The Various Services We Offer</h3>
+
+    <ol class="my-4 px-2">
+        <li class="list-group-item nice-blue">1) Sale Of Cars</li>
+        <li class="list-group-item nice-blue">2) Vehicle Registration</li>
+        <li class="list-group-item nice-blue">3) Car Rentals</li>
+        <li class="list-group-item nice-blue">4) Sale Of Car Spare Parts , Lubricants & Accessories</li>
+        <li class="list-group-item nice-blue">5) Shipping</li>
+        <li class="list-group-item nice-blue">6)Vehicle Registration</li>
+        <li class="list-group-item nice-blue">7)License (New, Upgrade, Replacement)</li>
+        <li class="list-group-item nice-blue">8) Driver Training</li>
+        <li class="list-group-item nice-blue">9) And Many More </li>
+    </ol>
+</div>
+
+
+
+
+<div class="container  mt-3 d-flex justify-content-center flex-column">
+
+    <ul class="nav nav-pills mb-3 d-flex justify-content-between nav nav-tabs nav-justified" id="pills-tab" role="tablist">
+        <li class="nav-item  text-center" role="presentation">
+            <button class="nav-link active" id="pills-conenq-tab" data-bs-toggle="pill" data-bs-target="#pills-conenq" type="button" role="tab" aria-controls="pills-conenq" aria-selected="true">Contact Enquiry</button>
+        </li>
+        <li class="nav-item  text-center" role="presentation">
+            <button class="nav-link" id="pills-drvsch-tab" data-bs-toggle="pill" data-bs-target="#pills-drvsch" type="button" role="tab" aria-controls="pills-drvsch" aria-selected="false">Request Driving School</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active " id="pills-conenq" role="tabpanel" aria-labelledby="pills-conenq-tab">
+            {% include 'our_services/contact_enquiry/create_contact_enquiry.html' %}
+
+
+
+        </div>
+
+
+        <div class="tab-pane fade " id="pills-drvsch" role="tabpanel" aria-labelledby="pills-drvsch-tab">
+
+            {% include 'our_services/req_driving_sch/req_drv_sch_create.html' %}
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container  mt-3 d-flex justify-content-center flex-column">
+
+        <ul class="nav nav-pills mb-3 d-flex justify-content-between nav nav-tabs nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item  text-center" role="presentation">
+                <button class="nav-link active" id="pills-lst-acc-tab" data-bs-toggle="pill" data-bs-target="#pills-lst-acc" type="button" role="tab" aria-controls="pills-lst-acc" aria-selected="true">List Accessory</button>
+            </li>
+            <li class="nav-item  text-center" role="presentation">
+                <button class="nav-link" id="pills-lst-carrent-tab" data-bs-toggle="pill" data-bs-target="#pills-lst-carrent" type="button" role="tab" aria-controls="pills-lst-carrent" aria-selected="false">List Car For Rent</button>
+            </li>
+            <li class="nav-item  text-center" role="presentation">
+                <button class="nav-link" id="pills-lst-drvsch-tab" data-bs-toggle="pill" data-bs-target="#pills-lst-drvsch" type="button" role="tab" aria-controls="pills-lst-drvsch" aria-selected="false">List Driving School</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active " id="pills-lst-acc" role="tabpanel" aria-labelledby="pills-lst-acc-tab">
+                {% include 'our_services/list_accessory/create_listing_accessory.html' %}
+
+
+
+            </div>
+
+
+            <div class="tab-pane fade " id="pills-lst-carrent" role="tabpanel" aria-labelledby="pills-lst-carrent-tab">
+
+                {% include 'our_services/listing_car_rent/create_car_rental_listing.html' %}
+            </div>
+
+            <div class="tab-pane fade " id="pills-lst-drvsch" role="tabpanel" aria-labelledby="pills-lst-drvsch-tab">
+
+                {% include 'our_services/driving_sch/create_drv_sch_listing.html' %}
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="container  mt-3 d-flex justify-content-center flex-column">
+
+            <ul class="nav nav-pills mb-3 d-flex justify-content-between nav nav-tabs nav-justified" id="pills-tab" role="tablist">
+                <li class="nav-item  text-center" role="presentation">
+                    <button class="nav-link active" id="pills-sellcar-tab" data-bs-toggle="pill" data-bs-target="#pills-sellcar" type="button" role="tab" aria-controls="pills-sellcar" aria-selected="true">Sell Your Car</button>
+                </li>
+                <li class="nav-item  text-center" role="presentation">
+                    <button class="nav-link" id="pills-shipcar-tab" data-bs-toggle="pill" data-bs-target="#pills-shipcar" type="button" role="tab" aria-controls="pills-shipcar" aria-selected="false">Ship Car To Sell</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active " id="pills-sellcar" role="tabpanel" aria-labelledby="pills-sellcar-tab">
+                    {% include 'our_services/sell_your_car/create_sell_your_car.html' %} </div>
+
+
+
+
+                <div class="tab-pane fade " id="pills-shipcar" role="tabpanel" aria-labelledby="pills-shipcar-tab">
+                    {% include 'our_services/ship_car_to_sell/create_ship_car_to_sell.html' %} </div>
+            </div>
+
+        </div>
+        {% endblock %}

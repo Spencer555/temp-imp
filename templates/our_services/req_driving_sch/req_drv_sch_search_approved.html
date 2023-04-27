@@ -1,0 +1,140 @@
+{% extends 'layout/index.html' %} {% block content %}
+<h4 class="my-3 text-center nice-blue">({{count}}) Approved Driver Lesson for "{{query}}" Found </h4>
+
+
+<nav class="container my-5 d-flex justify-content-center">
+
+
+    <form action={% url 'search-approved-req-drv-sch' %} method='GET' class="d-flex justify-content-center search input-group  w-100 mx-1">
+        {% csrf_token %}
+
+        <input class="form-control form-control-sm " type="search" name="q" placeholder="UnApproved Driving Lesson Requests" aria-label="Search" value={{query}} style="border-radius:0px">
+        <button style="border-radius:0px" class="btn   navbar-bgc1 text-white search" type="submit"><i class="bi bi-search" ></i></button>
+        <br>
+
+    </form>
+
+
+</nav>
+
+
+
+<div class="container mt-5">
+    <div class="row">
+
+        {% for drvLesson in req_drv_sch %}
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <a class='link' href="{% url 'detail-req-drv-sch' drvLesson.id drvLesson.slug %}">
+                <div class="col-md-4 w-100">
+                    <div class="card mb-4 ">
+                        <div class="card-body">
+                            <small class="card-text">Name: {{drvLesson.name}}</small> <br>
+                            <small class="card-text">Location: {{drvLesson.location}}</small> <br>
+                            <small class="card-text">Contact: {{drvLesson.contact_no}}</small> <br>
+                            <small class="card-text">Email: {{drvLesson.email}}</small> <br>
+                            <small class="card-text">Sent: {{drvLesson.created}}</small> <br>
+                            <small class="card-text">Region: {{drvLesson.region}}</small> <br>
+                            <small class="card-text">Budget: &#8373;{{drvLesson.budget}}</small> <br>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        {% endfor %}
+    </div>
+
+</div>
+<div class="paginations">
+    {% if is_paginated %} {% if page_obj.has_other_pages %}
+    <nav>
+        <ul class="pagination justify-content-center flex-wrap">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page=1">First</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page={{ page_obj.previous_page_number }}"> Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">First</span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+            {% endif %} {% for i in page_obj.paginator.page_range %} {% if i == page_obj.number %}
+            <li class="page-item active">
+                <span class="page-link">{{ i }} 
+        </li>
+
+
+
+
+
+
+
+
+
+
+        {%elif i > page_obj.number|add:"-3" and i < page_obj.number|add:"3"%}
+         <li class="page-item">
+            <a class="page-link" href="?q={{ query }}&page={{ i }}">{{ i }}</a>
+            </li>
+
+           
+            {%elif i == page_obj.number|add:"-3" or i == page_obj.number|add:"3"%}
+            <li class="page-item disabled">
+                <span class="page-link">...</span>
+
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {% endif %} {% endfor %} {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page={{ page_obj.next_page_number }}">Next </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}"> Last</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Next </span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link"> Last</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %} {% endif %}
+</div>
+
+
+{% endblock %}

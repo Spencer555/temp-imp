@@ -1,0 +1,117 @@
+{% extends 'layout\index.html' %} {% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 col-sm-12">
+            <div class="card">
+                <div class="card-header text-center ">
+                    <h4 class="">Update Car Rental</h4>
+                </div>
+                <small class="text-danger text-center">
+                    {{form.errors|capfirst}}
+                  </small>
+
+                <form method="POST" class="card-body" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        {{form.car}}
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        {{form.contact_no}}
+                    </div>
+
+
+
+
+                    <div class="input-group mb-4 d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group ">
+                                    {{form.rate}}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group ">
+                                    <div class="input-group ">
+                                        {{form.per}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="input-group mb-4 d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class=" nice-blue form-group ">
+                                    <small>Region</small> {{form.region}}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="nice-blue form-group ">
+                                    <small>Location</small> {{form.location}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="input-group d-flex flex-column">
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group ">
+
+                                    {{form.color}}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group ">
+                                    <div class="input-group mb-4">
+
+                                        {{form.interior_color}}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="input-group mb-3">
+                        {{form.accessories}}
+                    </div>
+
+                    <div class="input-group mb-3">
+                        {{form.description}}
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text text-secondary chk-box" id="basic-addon1 ">Image</span> {{form.main_image}}
+
+                    </div>
+
+                    {{form.user}}
+
+
+
+
+                    <button type="submit" class="btn btn-sm navbar-bgc text-white w-100 ">Update Car Rental</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

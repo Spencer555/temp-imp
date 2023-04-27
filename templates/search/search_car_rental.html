@@ -1,0 +1,147 @@
+{% extends 'layout/index.html'%} {% load static %} {% block content %}
+<div class="mb-5 jumbotron jumbotron-fluid d-flex car-rental">
+    <div class="overlay"></div>
+
+    <div class="container my-auto">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h1 class="display-4 main-jumb text-white text-bold">Rent A Car Today</h1>
+                <p class="lead text-white">At The Best Price Possible</p>
+                <p class="lead text-white">Nationwide Services Available</p>
+            </div>
+            <div class="col-md-8 text-center">
+                <form action={% url 'search-rentals' %} method='GET' class="d-flex justify-content-center search input-group  w-100 mx-1">
+
+                    <input class="form-control form-control-sm " type="search" name="q" placeholder="Search Car Rentals" aria-label="Search Cars" style="border-radius:0px" value={{query}}>
+                    <button style="border-radius:0px" class="btn   navbar-bgc2 text-white search" type="submit"><i class="bi bi-search" ></i></button>
+                    <br>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h4 class="my-3 text-center nice-blue">({{count}}) Result(s) For "{{query}}" Found </h4>
+
+<div class="container mb-5 mt-3 ">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-5 g-2 g-sm-2 g-md-3 g-lg-4">
+        {% for car in car_rental %}
+        <a class="link" href="{% url 'detail-car-rental'   car.slug car.id %}">
+            <div class="col">
+                <div class="card h-100 crd">
+                    <img src={{car.main_image.url}} class="card-img-top image-fluid card-image" alt={{car.name}}>
+                    <div class="card-body p-2">
+                        <h6 class="card-title">{{car.car|capfirst|truncatechars:29}}</h6>
+                        <small class="d-block small nice-blue">Posted: {{car.created| date:'D M Y'}}</small>
+                        <small class="d-block small nice-blue">Rate: &#8373;{{car.rate}} - {{car.per}}</small>
+                        <small class="d-block small nice-blue">Location: {{car.location|capfirst|truncatechars:20}}</small>
+                        <small class="d-block small nice-blue">Region: {{car.region}}</small>
+
+                        <small class="d-block small nice-blue">Posted: {{car.created|date:'D M Y'}}</small>
+
+                        <small class="d-block small nice-blue">Contact: {{car.contact_no}}</small>
+
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+
+    </div>
+</div>
+<div class="paginations">
+    {% if is_paginated %} {% if page_obj.has_other_pages %}
+    <nav>
+        <ul class="pagination justify-content-center flex-wrap">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page=1">First</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page={{ page_obj.previous_page_number }}"> Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">First</span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+            {% endif %} {% for i in page_obj.paginator.page_range %} {% if i == page_obj.number %}
+            <li class="page-item active">
+                <span class="page-link">{{ i }} 
+        </li>
+
+
+
+
+
+
+
+
+
+
+        {%elif i > page_obj.number|add:"-3" and i < page_obj.number|add:"3"%}
+         <li class="page-item">
+            <a class="page-link" href="?q={{ query }}&page={{ i }}">{{ i }}</a>
+            </li>
+
+           
+            {%elif i == page_obj.number|add:"-3" or i == page_obj.number|add:"3"%}
+            <li class="page-item disabled">
+                <span class="page-link">...</span>
+
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {% endif %} {% endfor %} {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page={{ page_obj.next_page_number }}">Next </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}"> Last</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Next </span>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link"> Last</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %} {% endif %}
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<footer class="  navbar-bgc text-white p-2  py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <ul class="list-inline mb-2 d-flex justify-content-between">
+                    {% if user.is_authenticated %}
+                    <small class="list-inline-item"><a class="link text-white fw-bold" href="{% url 'logout' %}">Logout</a></small> {% else %}
+                    <small class="list-inline-item"><a class="link text-white fw-bold" href="{% url 'login' %}">Staff</a></small> {% endif %}
+                    <small class="list-inline-item"><a class="link text-white fw-bold" href="{% url 'terms-and-conditions' %}">Terms & Conditions</a></small>
+                    <small class="list-inline-item"><a class="link text-white fw-bold" href="{% url 'privacy' %}">Privacy</a></small>
+                </ul>
+            </div>
+            <div class="col-12 text-center">
+                <ul class="list-inline mb-0 d-flex justify-content-center">
+                    <small class="list-inline-item"><a class="link text-white fw-bold" >© 2023 Imperial Auto Dealership</a></small>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</footer>

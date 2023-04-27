@@ -1,0 +1,35 @@
+{% extends 'layout/index.html'%} {% block content %}
+<div class="container my-5">
+
+    <div class="row my-4">
+
+        <div class="col-md-8">
+
+            <form method="POST" class="card">
+                {% csrf_token %}
+                <div class="card-header text-center ">
+                    <h4 class="del">Delete {{rent_car.car|capfirst}}?</h4>
+
+                </div>
+                <div class="card-body">
+
+
+                    <h6 class="del text-center">Are You Sure You Want To Delete ?</h6>
+
+                    <p class="del text-center">This Action Is Irreversible</p>
+
+                    <div class="d-flex w-100 justify-content-between">
+                        <button class="btn btn-sm btn-logout text-white w-25 mr-auto">Confirm</button>
+                        <a href="{% url 'detail-contact-enquiry-to' enquiry.id enquiry.slug %}" class="btn btn-sm bg-green text-white w-25">Cancel</a>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
